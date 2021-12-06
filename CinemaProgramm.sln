@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaProgramm", "CinemaProgramm\CinemaProgramm.csproj", "{6AE1BAEF-3D39-401B-947E-A7AEA2B155DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{46967664-C123-4470-84D9-7C42A77E23F5} = {46967664-C123-4470-84D9-7C42A77E23F5}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{46967664-C123-4470-84D9-7C42A77E23F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{54D25548-5A8E-4D69-A795-C13F26C2A153} = {54D25548-5A8E-4D69-A795-C13F26C2A153}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DLL", "DLL\DLL.csproj", "{54D25548-5A8E-4D69-A795-C13F26C2A153}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E37AEA31-275D-4E94-9E0F-4487871D2B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLTests", "DLLTests\DLLTests.csproj", "{95143A4E-F975-468D-AEA1-6E8D3F1F4853}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AE1BAEF-3D39-401B-947E-A7AEA2B155DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE1BAEF-3D39-401B-947E-A7AEA2B155DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE1BAEF-3D39-401B-947E-A7AEA2B155DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE1BAEF-3D39-401B-947E-A7AEA2B155DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46967664-C123-4470-84D9-7C42A77E23F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46967664-C123-4470-84D9-7C42A77E23F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46967664-C123-4470-84D9-7C42A77E23F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46967664-C123-4470-84D9-7C42A77E23F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D25548-5A8E-4D69-A795-C13F26C2A153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D25548-5A8E-4D69-A795-C13F26C2A153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D25548-5A8E-4D69-A795-C13F26C2A153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D25548-5A8E-4D69-A795-C13F26C2A153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95143A4E-F975-468D-AEA1-6E8D3F1F4853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95143A4E-F975-468D-AEA1-6E8D3F1F4853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95143A4E-F975-468D-AEA1-6E8D3F1F4853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95143A4E-F975-468D-AEA1-6E8D3F1F4853}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95143A4E-F975-468D-AEA1-6E8D3F1F4853} = {E37AEA31-275D-4E94-9E0F-4487871D2B1C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0459EFE-D6CF-4BDA-BA35-2475CF4EB541}
+	EndGlobalSection
+EndGlobal
