@@ -19,6 +19,7 @@ namespace DLL.Context
             builder.Entity<Ticket>().HasOne(t => t.Place).WithOne(p => p.Ticket).HasForeignKey<Ticket>(t=>t.PlaceID).IsRequired();
             builder.Entity<Ticket>().HasOne(t => t.Session).WithMany(s => s.Tickets);
             builder.Entity<Ticket>().HasOne(t => t.Employee).WithMany(e => e.Tickets);
+
         }
 
         public DbSet<Employee> Employees { get; set; }
