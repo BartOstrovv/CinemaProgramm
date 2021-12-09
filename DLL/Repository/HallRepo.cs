@@ -19,6 +19,6 @@ namespace DLL.Repository
             await _context.Halls.Include(x => x.Places).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Hall>> FindByConditionWithPlacesAsync(Expression<Func<Hall, bool>> predicat) =>
-            await _context.Halls.Include(x=>x.Places).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await _context.Halls.Where(predicat).Include(x=>x.Places).ToListAsync().ConfigureAwait(false);
     }
 }

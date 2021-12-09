@@ -25,12 +25,12 @@ namespace DLL.Repository
             await this.Entities.Include(x => x.Ticket).Include(x => x.Hall).ToListAsync().ConfigureAwait(false);
         //FindData
         public async Task<IReadOnlyCollection<Place>> FindByConditionWithHallsAsync(Expression<Func<Place, bool>> predicat) =>
-            await this.Entities.Include(x => x.Hall).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Hall).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Place>> FindByConditionWithTicketsAsync(Expression<Func<Place, bool>> predicat) =>
-            await this.Entities.Include(x => x.Ticket).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Ticket).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Place>> FindByConditionWithAllIncludedAsync(Expression<Func<Place, bool>> predicat) =>
-            await this.Entities.Include(x => x.Hall).Include(x=>x.Ticket).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Hall).Include(x=>x.Ticket).Where(predicat).ToListAsync().ConfigureAwait(false);
     }
 }

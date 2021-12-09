@@ -25,12 +25,12 @@ namespace DLL.Repository
             await this.Entities.Include(x => x.UserInfo).Include(x => x.Tickets).ToListAsync().ConfigureAwait(false);
         //FindData
         public async Task<IReadOnlyCollection<Employee>> FindByConditionWithTicketsAsync(Expression<Func<Employee, bool>> predicat) =>
-            await this.Entities.Include(x => x.Tickets).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Tickets).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Employee>> FindByConditionWithLoginAsync(Expression<Func<Employee, bool>> predicat) =>
-            await this.Entities.Include(x => x.UserInfo).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.UserInfo).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Employee>> FindByConditionWithAllIncludedAsync(Expression<Func<Employee, bool>> predicat) =>
-            await this.Entities.Include(x => x.UserInfo).Include(x => x.Tickets).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.UserInfo).Include(x => x.Tickets).ToListAsync().ConfigureAwait(false);
     }
 }

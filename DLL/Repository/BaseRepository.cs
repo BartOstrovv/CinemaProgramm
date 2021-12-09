@@ -34,5 +34,12 @@ namespace DLL.Repository
             await Entities.AddAsync(entity).ConfigureAwait(false);
             await _context.SaveChangesAsync();
         }
+
+        public virtual async Task UpdateAsync(TEntity entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.Update(entity);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+        }
     }
 }

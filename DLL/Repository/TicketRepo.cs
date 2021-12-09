@@ -28,15 +28,15 @@ namespace DLL.Repository
             await this.Entities.Include(x => x.Session).Include(x => x.Employee).Include(x => x.Place).ToListAsync().ConfigureAwait(false);
         //FindData
         public async Task<IReadOnlyCollection<Ticket>> FindByConditionWithSessionsAsync(Expression<Func<Ticket, bool>> predicat) =>
-            await this.Entities.Include(x => x.Session).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Session).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Ticket>> FindByConditionWithPlacesAsync(Expression<Func<Ticket, bool>> predicat) =>
-            await this.Entities.Include(x => x.Place).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Place).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Ticket>> FindByConditionWithEmployeesAsync(Expression<Func<Ticket, bool>> predicat) =>
-            await this.Entities.Include(x => x.Employee).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Employee).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Ticket>> FindByConditionWithAllIncludedAsync(Expression<Func<Ticket, bool>> predicat) =>
-            await this.Entities.Include(x => x.Session).Include(x => x.Employee).Include(x => x.Place).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await this.Entities.Where(predicat).Include(x => x.Session).Include(x => x.Employee).Include(x => x.Place).ToListAsync().ConfigureAwait(false);
     }
 }

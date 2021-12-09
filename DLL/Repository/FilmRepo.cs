@@ -19,6 +19,6 @@ namespace DLL.Repository
             await _context.Films.Include(x => x.Sessions).ToListAsync().ConfigureAwait(false);
 
         public async Task<IReadOnlyCollection<Film>> FindByConditionWithSessionAsync(Expression<Func<Film, bool>> predicat) =>
-            await _context.Films.Include(x => x.Sessions).Where(predicat).ToListAsync().ConfigureAwait(false);
+            await _context.Films.Where(predicat).Include(x => x.Sessions).ToListAsync().ConfigureAwait(false);
     }
 }

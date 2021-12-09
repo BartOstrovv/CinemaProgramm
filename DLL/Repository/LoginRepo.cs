@@ -18,7 +18,7 @@ namespace DLL.Repository
         public async Task<IReadOnlyCollection<LoginData>> GetAllWithEmployee() =>
             await this.Entities.Include(x => x.Employee).ToListAsync().ConfigureAwait(false);
 
-        public async Task<IReadOnlyCollection<LoginData>> FindByConditionWithLoginAsync(Expression<Func<LoginData, bool>> predicat) =>
-            await this.Entities.Include(x => x.Employee).Where(predicat).ToListAsync().ConfigureAwait(false);
+        public async Task<IReadOnlyCollection<LoginData>> FindByConditionWithEmployeeAsync(Expression<Func<LoginData, bool>> predicat) =>
+            await this.Entities.Where(predicat).Include(x => x.Employee).ToListAsync().ConfigureAwait(false);
     }
 }
