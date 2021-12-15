@@ -6,12 +6,11 @@ using DLL.Context;
 using Microsoft.EntityFrameworkCore;
 using BLL.Service;
 using DLL.Repository;
+using CinemaProgramm.ViewModel;
+using DLL.Model;
 
 namespace CinemaProgramm
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         public static IServiceProvider _servProvider;
@@ -25,7 +24,7 @@ namespace CinemaProgramm
         public static void PrepareDataService(ServiceCollection servCollect)
         {
             //Main
-            servCollect.AddSingleton<MainWindow>();
+            servCollect.AddSingleton<AuthorizationWindow>();
             //Context
             servCollect.AddDbContext<CinemaContext>(op => op.UseSqlServer(ConfigurationManager.ConnectionStrings["sConnect"].ConnectionString));
             servCollect.AddSingleton<CinemaContext>();
@@ -42,11 +41,17 @@ namespace CinemaProgramm
             servCollect.AddTransient<LoginService>();
             servCollect.AddTransient<SessionService>();
             servCollect.AddTransient<TicketService>();
+            //ViewModel
+            servCollect.AddTransient<LoginDataViewModel>();
+
+            //Model
+            servCollect.AddSingleton<Employee>();
+            servCollect.AddSingleton<LoginData>();
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var wind = _servProvider.GetService<MainWindow>();
+            var wind = _servProvider.GetService<AuthorizationWindow>();
             wind.ShowDialog();
         }
     }

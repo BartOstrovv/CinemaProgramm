@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Service;
+using CinemaProgramm.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +17,12 @@ using System.Windows.Shapes;
 
 namespace CinemaProgramm
 {
-    public partial class MainWindow : Window
+    public partial class AuthorizationWindow : Window
     {
-        public MainWindow()
+        public AuthorizationWindow(LoginDataViewModel model)
         {
             InitializeComponent();
+            this.DataContext = model;
         }
     }
 }

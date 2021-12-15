@@ -1,0 +1,23 @@
+﻿<Window x:Class="CinemaProgramm.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaProgramm"
+        mc:Ignorable="d"
+        Title="Cinema" Height="350" Width="700">
+    <Grid Background="Aqua">
+        <Image Height="100" Width="700" Stretch="Fill" VerticalAlignment="Top" Source="http://pngimagesfree.com/Curtain/big/header-curtain-design.png" Margin="10"></Image>
+        <StackPanel Margin="200, 50">
+            <Label Content="𝓒𝓘𝓝𝓔𝓜𝓐" FontSize="40" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" FontStyle="Italic" Foreground="Black"></Label>
+            <Label Margin="15, 50, 0, 0" Content="𝓛𝓸𝓰𝓲𝓷"></Label>
+            <TextBox Margin="15, 0, 0, 0" Width="150" Background="Transparent" HorizontalAlignment="Left"
+                     Text="{Binding AuthorizationData.Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Margin="15, 0, 0,0" Content="𝓟𝓪𝓼𝓼𝔀𝓸𝓻𝓭"></Label>
+            <TextBox Margin="15, 0, 0, 0" Width="150" Background="Transparent" HorizontalAlignment="Left"
+                          Text="{Binding AuthorizationData.Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Button Command="{Binding CheckLogDataCommand}" Margin="15, 15, 15, 0" Width="300" Background="LightGreen" Content="𝓛𝓸𝓰 𝓲𝓷"></Button>
+
+        </StackPanel>
+    </Grid>
+</Window>

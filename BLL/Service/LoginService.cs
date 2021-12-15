@@ -9,13 +9,24 @@ namespace BLL.Service
 {
     public class LoginService
     {
-        private readonly LoginRepo _loginRepo;
-        public LoginService(LoginRepo loginRepo)
+        private readonly EmployeeRepo _employerRepos;
+        public LoginService(EmployeeRepo empRepo)
         {
-            _loginRepo = loginRepo;
+            _employerRepos = empRepo;
         }
 
-        public async Task<Employee> AutorizationAsync(string login, string pass) =>
-            (await _loginRepo.FindByConditionAsync(x => x.Login == login && x.Password == pass)).First()?.Employee;
+        public async Task<Employee> AutorizationAsync(LoginData login)
+        {
+            try
+            {
+                return (await _employerRepos.FindByConditionWithLoginAsync(empl => empl.UserInfo.Login == login.Login && empl.UserInfo.Password == login.Password))?.First();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+           
+        
     }
 }

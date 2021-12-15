@@ -13,7 +13,7 @@ namespace DLL.Model
         public DateTime StartWork { get; set; }
 
         public int LoginDataID { get; set; }
-        public LoginData UserInfo { get; set; }
+        public LoginData UserInfo { get; set; } = new LoginData();
         public string Role { get; set; }
 
         public List<Ticket> Tickets { get; set; } = new List<Ticket>();
